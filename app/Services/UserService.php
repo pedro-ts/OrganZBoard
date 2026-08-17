@@ -2,8 +2,8 @@
 
 namespace App\Services;
 
+use App\Data\User\UserData;
 use App\Models\User;
-use App\User\Data\UserData;
 
 class UserService
 {

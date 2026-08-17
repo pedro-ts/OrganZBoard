@@ -1,6 +1,6 @@
 <?php
 
-namespace App\User\Data;
+namespace App\Data\User;
 
 final readonly class UserData
 {
