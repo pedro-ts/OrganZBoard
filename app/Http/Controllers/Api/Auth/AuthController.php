@@ -16,14 +16,15 @@ class AuthController extends Controller
         $result = $this->authService->login(
             email: $request->validated('email'),
             password: $request->validated('password'),
-            deviceName: $request->validated('device_name'));
+            deviceName: $request->validated('device_name', "default"));
 
         return response()->json(
             [
                 'message' => 'login realizado com sucesso!',
 
                 'data' => [
-                    'user' => new UserResource($result['user'])
+                    'user' => new UserResource($result['user']),
+                    'token' => $result['token']
                 ]
             ]
         );

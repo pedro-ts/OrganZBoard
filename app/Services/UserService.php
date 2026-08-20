@@ -13,11 +13,10 @@ class UserService
     public function __construct() {}
     public function getAll(bool $usaPaginate = false) {
         $userQuery = User::query()->latest();
-        if($usaPaginate){
-            $userQuery->paginate(20);
-        }
 
-        return $userQuery;
+        return $usaPaginate 
+            ? $userQuery->paginate(20) 
+            : $userQuery->get();
     }
 
     public function getOne(User $user): User{
@@ -29,7 +28,7 @@ class UserService
     }
 
     public function update(User $user, UserData $data): User{
-        $user::update($data->toModelAttributes());
+        $user->update($data->toModelAttributes());
 
         return $user->refresh();
     }

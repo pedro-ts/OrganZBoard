@@ -16,4 +16,4 @@ Route::prefix('auth')->group(function (){
 });
 
 // Rotas de User
-Route::middleware('auth::sanctum')->apiResource('users', UserController::class);
+Route::middleware('auth:sanctum')->apiResource('users', UserController::class);
